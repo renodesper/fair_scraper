@@ -12,12 +12,12 @@ let nightmare = Nightmare({ show: false });
 
 // Start AirAsia scraper
 let airasiaInput = {
-    fromLocation: '',   // Jakarta
-    toLocation: '',     // Singapore
-    fromDate: '',       // 01/05/2017
-    toDate: '',         // 13/05/2017
-    passenger: '',      // 1
-    recipient: '',      // example@gmail.com (can be comma separated)
+    fromLocation: 'Jakarta',   // Jakarta
+    toLocation: 'Singapore',     // Singapore
+    fromDate: '01/05/2017',       // 01/05/2017
+    toDate: '13/05/2017',         // 13/05/2017
+    passenger: '1',      // 1
+    recipient: 'reno.esper@gmail.com',      // example@gmail.com (can be comma separated)
     cc: '',             // example@gmail.com
     bcc: ''             // example@gmail.com
 };
