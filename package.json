@@ -1,0 +1,18 @@
+{
+    "name": "fair_scraper",
+    "version": "1.0.0",
+    "description": "",
+    "main": "scraper.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": " Boy Sandy Gladies Arriezona <reno.esper@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "cheerio": "^0.22.0",
+        "dotenv": "^4.0.0",
+        "mailgun-js": "^0.8.2",
+        "moment": "^2.17.1",
+        "nightmare": "^2.9.1"
+    }
+}
