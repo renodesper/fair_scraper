@@ -1,9 +1,9 @@
 const moment = require('moment');
 const config = require('./config');
 
-let sendReport = (mailgun, leaveFair, returnFair, input) => {
-    let scrap_date = moment().format("DD-MM-YYYY, h:mm:ss a");
-    let data = {
+const sendReport = (mailgun, leaveFair, returnFair, input) => {
+    const scrap_date = moment().format("DD-MM-YYYY, h:mm:ss a");
+    const data = {
         from: `${input.sender} <${config.mailgunMail}>`,
         to: input.recipient,
         subject: `Scrap Report: ${input.target}`,

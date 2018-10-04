@@ -1,16 +1,16 @@
 const cheerio = require('cheerio');
 const mail = require('./mail');
 
-let parse = (html, mailgun, input) => {
-    let $ = cheerio.load(html);
+const parse = (html, mailgun, input) => {
+    const $ = cheerio.load(html);
 
-    let leaveFair = $('#availabilityForm > div:nth-child(1) > table > tbody > tr.fare-light-row > td.avail-table-top-border-black.avail-fare.depart.LF > div > div > div:nth-child(2) > div > div > div.avail-fare-price-wrapper > div').text();
-    let leaveDepartedTime = $('#availabilityForm > div:nth-child(1) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(2) > div > div.avail-table-bold').text();
-    let leaveArrivalTime = $('#availabilityForm > div:nth-child(1) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(4) > div > div.avail-table-bold').text();
+    const leaveFair = $('#availabilityForm > div:nth-child(1) > table > tbody > tr.fare-light-row > td.avail-table-top-border-black.avail-fare.depart.LF > div > div > div:nth-child(2) > div > div > div.avail-fare-price-wrapper > div').text();
+    const leaveDepartedTime = $('#availabilityForm > div:nth-child(1) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(2) > div > div.avail-table-bold').text();
+    const leaveArrivalTime = $('#availabilityForm > div:nth-child(1) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(4) > div > div.avail-table-bold').text();
 
-    let returnFair = $('#availabilityForm > div:nth-child(2) > table > tbody > tr.fare-light-row > td.avail-table-top-border-black.avail-fare.return.LF > div > div > div:nth-child(2) > div > div > div.avail-fare-price-wrapper > div').text();
-    let returnDepartedTime = $('#availabilityForm > div:nth-child(2) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(2) > div > div.avail-table-bold').text();
-    let returnArrivalTime = $('#availabilityForm > div:nth-child(2) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(4) > div > div.avail-table-bold').text();
+    const returnFair = $('#availabilityForm > div:nth-child(2) > table > tbody > tr.fare-light-row > td.avail-table-top-border-black.avail-fare.return.LF > div > div > div:nth-child(2) > div > div > div.avail-fare-price-wrapper > div').text();
+    const returnDepartedTime = $('#availabilityForm > div:nth-child(2) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(2) > div > div.avail-table-bold').text();
+    const returnArrivalTime = $('#availabilityForm > div:nth-child(2) > table > tbody > tr.fare-light-row > td.avail-table-vert.avail-fare-td.avail-table-top-border-black > table > tbody > tr > td:nth-child(1) > table > tbody > tr > td:nth-child(4) > div > div.avail-table-bold').text();
 
     input.sender = 'Airport Scraper';
     input.target = 'AirAsia';
@@ -20,7 +20,7 @@ let parse = (html, mailgun, input) => {
     mail.sendReport(mailgun, leaveFair, returnFair, input);
 }
 
-let scrap = (nightmare, mailgun, input) => {
+const scrap = (nightmare, mailgun, input) => {
     const url = 'http://www.airasia.com/id/en/home.page';
     nightmare.goto(url)
         .wait('#fromInput')
